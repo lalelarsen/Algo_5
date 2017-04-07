@@ -106,10 +106,11 @@ public class Algo_StudypointExercise_5_Swarm {
 
             }
         }
-        double worst = valueStats[worstUnit(valueStats)];
         double best = valueStats[bestUnit(valueStats)];
-
-        System.out.println("worst: " + worst + "        best: " + best);
+        double bestX = bestLocation[0][bestUnit(valueStats)];
+        double bestY = bestLocation[1][bestUnit(valueStats)];
+        
+        System.out.println("cords: x: " + bestX + "  y: " + bestY + "    value: " + best);
     }
 
     public static void main(String[] args) {
@@ -117,6 +118,7 @@ public class Algo_StudypointExercise_5_Swarm {
         Algo_StudypointExercise_5_Swarm b = new Algo_StudypointExercise_5_Swarm(10, 100);
         Algo_StudypointExercise_5_Swarm c = new Algo_StudypointExercise_5_Swarm(20, 100);
 
+        System.out.println("Opgave A");
         System.out.println("-----5 units----100 iterations---");
         a.run();
 
@@ -131,16 +133,6 @@ public class Algo_StudypointExercise_5_Swarm {
         int pos = 0;
         for (int i = 0; i < numberOfUnits; i++) {
             if (values[i] < values[pos]) {
-                pos = i;
-            }
-        }
-        return pos;
-    }
-
-    public static int worstUnit(double[] values) {
-        int pos = 0;
-        for (int i = 0; i < numberOfUnits; i++) {
-            if (values[i] > values[pos]) {
                 pos = i;
             }
         }

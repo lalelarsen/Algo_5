@@ -5,6 +5,7 @@
  */
 package algo_studypointexercise_5_swarm;
 
+import static algo_studypointexercise_5_swarm.Algo_StudypointExercise_5_Swarm.bestUnit;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -125,10 +126,16 @@ public class Algo_StudypointExercise_5_SwarmV2 {
 
             }
         }
-        double worst = valueStats[worstUnit(valueStats)];
+        
         double best = valueStats[bestUnit(valueStats)];
-
-        System.out.println("worst: " + worst + "        best: " + best);
+        double bestX = bestLocation[0][bestUnit(valueStats)];
+        double bestY = bestLocation[1][bestUnit(valueStats)];
+        double bestU = bestLocation[2][bestUnit(valueStats)];
+        double bestW = bestLocation[3][bestUnit(valueStats)];
+        
+        System.out.println("cords: x: " + bestX + "  y: " + bestY);
+        System.out.println("u: " + bestU + "  w: " + bestW);
+        System.out.println("value: " + best);
     }
 
     public static void main(String[] args) {
@@ -136,6 +143,8 @@ public class Algo_StudypointExercise_5_SwarmV2 {
         Algo_StudypointExercise_5_SwarmV2 b = new Algo_StudypointExercise_5_SwarmV2(10, 100);
         Algo_StudypointExercise_5_SwarmV2 c = new Algo_StudypointExercise_5_SwarmV2(20, 100);
 
+        System.out.println("Opgave B");
+        
         System.out.println("-----5 units----100 iterations---");
         a.run();
 
@@ -156,13 +165,4 @@ public class Algo_StudypointExercise_5_SwarmV2 {
         return pos;
     }
 
-    public static int worstUnit(double[] values) {
-        int pos = 0;
-        for (int i = 0; i < numberOfUnits; i++) {
-            if (values[i] > values[pos]) {
-                pos = i;
-            }
-        }
-        return pos;
-    }
 }
